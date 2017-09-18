@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru-RU">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="https://cdn-static-1.medium.com/_/fp/icons/favicon-rebrand-medium.3Y6xpZ-0FSdWDnPM3hSBIA.ico">
+        <title>Progressive Web Apps with React.js: Part I — Introduction</title>
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Andrew">
+        <!-- vendor CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/libs.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md nav-top navbar-light fixed-top" id="topNav">
+            <div class="container">
+                <a class="navbar-brand" href="#"><svg class="svgIcon-use" width="138" height="27" viewBox="0 0 138 27"><path d="M130 27V16.96c0-3.26-.154-5.472-2.437-5.472-1.16 0-2.138.57-2.863 1.512.217.906.3 1.968.3 3.127 0 2.247.036 5.11 0 7.973 0 .472-.046.58.244.87L127 27h-8V16.96c0-3.297-.461-5.472-2.708-5.472-1.16 0-1.64.653-2.292 1.595V24.1c0 .472-.026.58.3.87L116 27h-8V11.56c0-.47-.07-.579-.36-.905L106 9h8v3.612c.906-2.537 2.437-4.112 5.372-4.112 2.682 0 4.494 1.466 5.255 4.257.834-2.392 3.008-4.257 6.053-4.257 3.588 0 5.32 2.626 5.32 7.627 0 2.392.036 5.11 0 7.973 0 .472.004.652.25.87L138 27h-8zm-27-3.045c0 .472-.149.617.178.906L105 27h-8v-4c-.906 2.465-2.956 4-5.637 4C87.775 27 86 24.39 86 19.461c0-2.391-.036-5 0-7.936 0-.471-.11-.58-.4-.87L84 9h8v9.628c0 3.225.269 5.4 2.298 5.4 1.16 0 2.086-.725 2.702-1.63V11.56c0-.471-.129-.58-.419-.906L95 9h8v14.955zM78.002.25A3.248 3.248 0 0 1 81.25 3.5 3.25 3.25 0 1 1 78.002.25zM75 27V11.56c0-.47.168-.579-.122-.905L73 9h8v15.1c0 .472-.01.678.24.9L83 27h-8zM64 11.706c-.507-.652-1.418-1.123-2.396-1.123-1.957 0-3.842 1.775-3.842 7.03 0 4.93 1.631 6.669 3.66 6.669.907 0 1.853-.436 2.578-1.378V11.706zm6 12.286c0 .47-.026.58.3.87L72 27h-8v-3.697C62.913 25.804 60.951 27 58.632 27 54.5 27 51.5 23.738 51.5 17.795c0-5.582 3.254-9.314 7.784-9.314 2.356 0 3.919 1.123 4.716 2.899V3.878c0-.471-.077-.617-.403-.906L62 1.305 70 .29v23.702zM43.9 16c.037-.471.037-.67.037-.815 0-4.747-.937-5.435-2.437-5.435-1.5 0-2.854.995-2.927 6.25h5.328zm-5.327 1c0 4.711 2.392 6.63 5.183 6.63 2.174 0 4.313-.943 5.509-3.335h.072c-.942 4.566-3.77 6.705-8.01 6.705-4.566 0-8.879-2.755-8.879-9.133 0-6.705 4.277-9.386 9.097-9.386 3.842 0 7.937 1.811 7.937 7.646 0 .109 0 .438-.036.873H38.573zM31.5 27h-12l2.39-2.646c.084-.084.11-.399.11-.87V7l-7.866 20L5.581 8.372C5.364 7.9 5.181 7.285 5 6.777V20.62c0 .58-.035.653.364 1.196L9 27H0l3.64-5.183c.399-.543.36-.616.36-1.196V6.27c0-.617.095-.69-.195-1.051L1 1h8.495l7.355 16.3L23.24 1h8.26l-2.2 2.75c-.326.326-.3.599-.3 1.106v18.629c0 .47.005.75.138.87L31.5 27z"></path></svg></i></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse text-center justify-content-end" id="navbar3SupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign in / Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section id="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mx-auto">
+                        <div class="author">
+                            <div><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                <a href="">Addy Osmani</a>
+                                <button>Follow</button>
+                                <p class="">Senior Staff Engineer at Google working with the Chrome team • Creator of TodoMVC, Yeoman, Material Design </p>
+                                <span >Oct 4, 2016</span><span class="dot"></span><span>8 min read</span>
+                                
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h1>Progressive Web Apps with React.js: Part I — Introduction</h1>
+                            <h2>Progressive Web Apps take advantage of new technologies to bring the best of mobile sites & native apps to users. They’re reliable, fast, and engaging. They originate from a secure origin and load regardless of network state.</h2>
+                            <img class="full-img" src="img/1-Ms2muRzG4DHE36YU4kX_ag@2x.png" alt="">
+                            <p name="ac45" id="ac45" class="graf graf--p graf-after--figure">There’s much new in the world of <a href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/" data-href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">Progressive Web Apps</a> (PWAs) and you might be wondering how compatible they are with existing architectures using libraries like <a href="https://facebook.github.io/react/" data-href="https://facebook.github.io/react/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">React</a> and JS module bundlers like <a href="https://webpack.github.io/" data-href="https://webpack.github.io/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">Webpack</a>. Does a PWA require a wholesale rewrite? What web performance metrics do you need to keep an eye on? In this series of posts I’ll share my experience turning React-based web apps into PWAs. We’ll also cover why shipping <em class="markup--em markup--p-em">just</em> what users need for a route &amp; throwing out all other scripts are good ideas for fast perf.</p>
+                            <h3 class="graf--h3 ">Lighthouse</h3>
+                            <p name="e78d" id="e78d" class="graf graf--p graf-after--h3">Let’s begin with a PWA checklist. For this we’ll be using <a href="https://github.com/GoogleChrome/lighthouse" data-href="https://github.com/GoogleChrome/lighthouse" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank"><strong class="markup--strong markup--p-strong">Lighthouse</strong></a>&#8202;—&#8202;a tool for auditing <a href="https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/" data-href="https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">an app for PWA features</a> and checking your app meets a respectable bar for web performance under emulated mobile conditions. Lighthouse is available as a <a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk" data-href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">Chrome extension</a> (I use this version of it most often) and a <a href="https://github.com/GoogleChrome/lighthouse#install-cli" data-href="https://github.com/GoogleChrome/lighthouse#install-cli" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">CLI</a>, both of which present a report that looks a little like this:</p>
+                        </div>
+                    </div>
+                    <img  class="full-img" src="img/0-EI9JfoDRizcpZolA-.jpg" alt="">
+                    <div class="col-8 mx-auto">
+                        <div class="content">
+                            <p name="ba2c" id="ba2c" class="graf graf--p graf-after--figure">The top-level audits Lighthouse runs effectively a collection of modern web best practices refined for a mobile world:</p>
+                            <ul class="postList"><li name="aaf2" id="aaf2" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Network connection is secure</strong></li><li name="f667" id="f667" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">User can be prompted to Add to Homescreen</strong></li><li name="5ea8" id="5ea8" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Installed web app will launch with custom splash screen</strong></li><li name="9135" id="9135" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">App can load on offline/flaky connections</strong></li><li name="2e3e" id="2e3e" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Page load performance is fast</strong></li><li name="4cc9" id="4cc9" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Design is mobile-friendly</strong></li><li name="fd96" id="fd96" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Site is progressively enhanced</strong></li><li name="d8e1" id="d8e1" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Address bar matches brand colors</strong></li></ul>
+                            <p name="9138" id="9138" class="graf graf--p graf-after--li">Btw, there’s a <a href="https://developers.google.com/web/tools/lighthouse/" data-href="https://developers.google.com/web/tools/lighthouse/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">getting started guide</a> for Lighthouse and it also works over <a href="https://github.com/GoogleChrome/lighthouse#lighthouse-w-mobile-devices" data-href="https://github.com/GoogleChrome/lighthouse#lighthouse-w-mobile-devices" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">remote debugging</a>. Super cool.</p>
+                            <p name="9186" id="9186" class="graf graf--p graf-after--p">Regardless of what libraries are in your stack, I want to emphasize that everything in the above list can be accomplished today with a little work. There are caveats however.</p>
+                            <p name="a386" id="a386" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">We know the mobile web is </strong><a href="https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/" data-href="https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">slow</em></strong></a><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">.</em></strong></p>
+                            <p name="0347" id="0347" class="graf graf--p graf-after--p">The web has evolved from a document-centric platform to a first-class application platform. At the same time the bulk of our computing has moved from powerful desktop machines with fast, reliable network connections to relatively underpowered mobile devices with connections that are often <em class="markup--em markup--p-em">slow, flaky or both. </em>This is especially true in parts of the world where the next billion users are coming online. To unlock a faster mobile web:</p>
+                            <ul class="postList">
+                                <li name="bd94" id="bd94" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">We need to collectively shift to testing on real mobile devices under realistic network connections</strong> (e.g <a href="https://developers.google.com/web/tools/chrome-devtools/profile/network-performance/network-conditions?hl=en" data-href="https://developers.google.com/web/tools/chrome-devtools/profile/network-performance/network-conditions?hl=en" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">Regular 3G in DevTools</a>). <a href="https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging?hl=en" data-href="https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging?hl=en" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">chrome://inspect</a> and <a href="https://www.webpagetest.org/" data-href="https://www.webpagetest.org/" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">WebPageTest</a> (<a href="https://www.youtube.com/watch?v=pOynMwTyRgQ&amp;feature=youtu.be" data-href="https://www.youtube.com/watch?v=pOynMwTyRgQ&amp;feature=youtu.be" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">video</a>) are your friend. Lighthouse emulates a Nexus 5X with touch events, viewport emulation and a throttled network connection (150ms latency, 1.6Mbps throughput).</li>
+                                <li name="93c3" id="93c3" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">If the JS libraries you’re using aren’t developed with mobile in mind, you may be running an uphill battle for perf</strong> when it comes to being interactive. We’re ideally aiming for being interactive in under 5 seconds on a representative device so more of that budget for our app code is ❤</li>
+                            </ul>
+                            <img class="full-img" src="img/1-Qx7aFIAKWbn11heD--nxwg.png" alt="">
+                            <figcaption class="imageCaption">With some work, it’s possible to write PWAs with React that <em class="markup--em markup--figure-em">do</em> perform well on real devices under limited network conditions <a href="https://twitter.com/samccone/status/771786445015035904" data-href="https://twitter.com/samccone/status/771786445015035904" class="markup--anchor markup--figure-anchor" rel="nofollow noopener" target="_blank">as demonstrated by Housing.com</a>. We’ll talk about how to achieve this in great <strong class="markup--strong markup--figure-strong">detail</strong> later on in the&nbsp;series.</figcaption>
+
+                            <div class="tags">
+                                <i><a href="">Web Development</a></i>
+                                <i><a href="">Mobile</a></i>
+                                <i><a href="">Progressice Web App</a></i>
+                                <i><a href="">React</a></i>
+                                <i><a href="">JavaScript</a></i>
+                            </div>
+                            <hr>
+                            <p class="lead">Show your support</p>
+                            <p>Clapping shows how much you appreciated Addy Osmani’s story.</p>
+                            <div class="icons-bottom">
+                                <div class="aplose">
+                                    <div class="svg-wrapper">
+                                        <svg class="svgIcon-use" width="33" height="33" viewBox="0 0 33 33"><path d="M28.86 17.342l-3.64-6.402c-.292-.433-.712-.729-1.163-.8a1.124 1.124 0 0 0-.889.213c-.63.488-.742 1.181-.33 2.061l1.222 2.587 1.4 2.46c2.234 4.085 1.511 8.007-2.145 11.663-.26.26-.526.49-.797.707 1.42-.084 2.881-.683 4.292-2.094 3.822-3.823 3.565-7.876 2.05-10.395zm-6.252 11.075c3.352-3.35 3.998-6.775 1.978-10.469l-3.378-5.945c-.292-.432-.712-.728-1.163-.8a1.122 1.122 0 0 0-.89.213c-.63.49-.742 1.182-.33 2.061l1.72 3.638a.502.502 0 0 1-.806.568l-8.91-8.91a1.335 1.335 0 0 0-1.887 1.886l5.292 5.292a.5.5 0 0 1-.707.707l-5.292-5.292-1.492-1.492c-.503-.503-1.382-.505-1.887 0a1.337 1.337 0 0 0 0 1.886l1.493 1.492 5.292 5.292a.499.499 0 0 1-.353.854.5.5 0 0 1-.354-.147L5.642 13.96a1.338 1.338 0 0 0-1.887 0 1.338 1.338 0 0 0 0 1.887l2.23 2.228 3.322 3.324a.499.499 0 0 1-.353.853.502.502 0 0 1-.354-.146l-3.323-3.324a1.333 1.333 0 0 0-1.886 0 1.325 1.325 0 0 0-.39.943c0 .356.138.691.39.943l6.396 6.397c3.528 3.53 8.86 5.313 12.821 1.353zM12.73 9.26l5.68 5.68-.49-1.037c-.518-1.107-.426-2.13.224-2.89l-3.303-3.304a1.337 1.337 0 0 0-1.886 0 1.326 1.326 0 0 0-.39.944c0 .217.067.42.165.607zm14.787 19.184c-1.599 1.6-3.417 2.392-5.353 2.392-.349 0-.7-.03-1.058-.082a7.922 7.922 0 0 1-3.667.887c-3.049 0-6.115-1.626-8.359-3.87l-6.396-6.397A2.315 2.315 0 0 1 2 19.724a2.327 2.327 0 0 1 1.923-2.296l-.875-.875a2.339 2.339 0 0 1 0-3.3 2.33 2.33 0 0 1 1.24-.647l-.139-.139c-.91-.91-.91-2.39 0-3.3.884-.884 2.421-.882 3.301 0l.138.14a2.335 2.335 0 0 1 3.948-1.24l.093.092c.091-.423.291-.828.62-1.157a2.336 2.336 0 0 1 3.3 0l3.384 3.386a2.167 2.167 0 0 1 1.271-.173c.534.086 1.03.354 1.441.765.11-.549.415-1.034.911-1.418a2.12 2.12 0 0 1 1.661-.41c.727.117 1.385.565 1.853 1.262l3.652 6.423c1.704 2.832 2.025 7.377-2.205 11.607zM13.217.484l-1.917.882 2.37 2.837-.454-3.719zm8.487.877l-1.928-.86-.44 3.697 2.368-2.837zM16.5 3.293L15.478-.005h2.044L16.5 3.293z" fill-rule="evenodd"></path></svg>
+                                    </div>
+                                    <span>2.7K</span>
+                                </div>
+                                <div class="social-lincs">
+                                    <ul>
+                                        <li><svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29"><path d="M21.27 20.058c1.89-1.826 2.754-4.17 2.754-6.674C24.024 8.21 19.67 4 14.1 4 8.53 4 4 8.21 4 13.384c0 5.175 4.53 9.385 10.1 9.385 1.007 0 2-.14 2.95-.41.285.25.592.49.918.7 1.306.87 2.716 1.31 4.19 1.31.276-.01.494-.14.6-.36a.625.625 0 0 0-.052-.65c-.61-.84-1.042-1.71-1.282-2.58a5.417 5.417 0 0 1-.154-.75zm-3.85 1.324l-.083-.28-.388.12a9.72 9.72 0 0 1-2.85.424c-4.96 0-8.99-3.706-8.99-8.262 0-4.556 4.03-8.263 8.99-8.263 4.95 0 8.77 3.71 8.77 8.27 0 2.25-.75 4.35-2.5 5.92l-.24.21v.32c0 .07 0 .19.02.37.03.29.1.6.19.92.19.7.49 1.4.89 2.08-.93-.14-1.83-.49-2.67-1.06-.34-.22-.88-.48-1.16-.74z"></path></svg></li>
+                                        <li>21</li>
+                                        <li><svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29"><path d="M21.967 11.8c.018 5.93-4.607 11.18-11.177 11.18-2.172 0-4.25-.62-6.047-1.76l-.268.422-.038.5.186.013.168.012c.3.02.44.032.6.046 2.06-.026 3.95-.686 5.49-1.86l1.12-.85-1.4-.048c-1.57-.055-2.92-1.08-3.36-2.51l-.48.146-.05.5c.22.03.48.05.75.08.48-.02.87-.07 1.25-.15l2.33-.49-2.32-.49c-1.68-.35-2.91-1.83-2.91-3.55 0-.05 0-.01-.01.03l-.49-.1-.25.44c.63.36 1.35.57 2.07.58l1.7.04L7.4 13c-.978-.662-1.59-1.79-1.618-3.047a4.08 4.08 0 0 1 .524-1.8l-.825.07a12.188 12.188 0 0 0 8.81 4.515l.59.033-.06-.59v-.02c-.05-.43-.06-.63-.06-.87a3.617 3.617 0 0 1 6.27-2.45l.2.21.28-.06c1.01-.22 1.94-.59 2.73-1.09l-.75-.56c-.1.36-.04.89.12 1.36.23.68.58 1.13 1.17.85l-.21-.45-.42-.27c-.52.8-1.17 1.48-1.92 2L22 11l.016.28c.013.2.014.35 0 .52v.04zm.998.038c.018-.22.017-.417 0-.66l-.498.034.284.41a8.183 8.183 0 0 0 2.2-2.267l.97-1.48-1.6.755c.17-.08.3-.02.34.03a.914.914 0 0 1-.13-.292c-.1-.297-.13-.64-.1-.766l.36-1.254-1.1.695c-.69.438-1.51.764-2.41.963l.48.15a4.574 4.574 0 0 0-3.38-1.484 4.616 4.616 0 0 0-4.61 4.613c0 .29.02.51.08.984l.01.02.5-.06.03-.5c-3.17-.18-6.1-1.7-8.08-4.15l-.48-.56-.36.64c-.39.69-.62 1.48-.65 2.28.04 1.61.81 3.04 2.06 3.88l.3-.92c-.55-.02-1.11-.17-1.6-.45l-.59-.34-.14.67c-.02.08-.02.16 0 .24-.01 2.12 1.55 4.01 3.69 4.46l.1-.49-.1-.49c-.33.07-.67.12-1.03.14-.18-.02-.43-.05-.64-.07l-.76-.09.23.73c.57 1.84 2.29 3.14 4.28 3.21l-.28-.89a8.252 8.252 0 0 1-4.85 1.66c-.12-.01-.26-.02-.56-.05l-.17-.01-.18-.01L2.53 21l1.694 1.07a12.233 12.233 0 0 0 6.58 1.917c7.156 0 12.2-5.73 12.18-12.18l-.002.04z"></path></svg></li>
+                                        <li><svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29"><path d="M16.39 23.61v-5.808h1.846a.55.55 0 0 0 .546-.48l.36-2.797a.551.551 0 0 0-.547-.62H16.39V12.67c0-.67.12-.813.828-.813h1.474a.55.55 0 0 0 .55-.55V8.803a.55.55 0 0 0-.477-.545c-.436-.06-1.36-.116-2.22-.116-2.5 0-4.13 1.62-4.13 4.248v1.513H10.56a.551.551 0 0 0-.55.55v2.797c0 .304.248.55.55.55h1.855v5.76c-4.172-.96-7.215-4.7-7.215-9.1 0-5.17 4.17-9.36 9.31-9.36 5.14 0 9.31 4.19 9.31 9.36 0 4.48-3.155 8.27-7.43 9.15M14.51 4C8.76 4 4.1 8.684 4.1 14.46c0 5.162 3.75 9.523 8.778 10.32a.55.55 0 0 0 .637-.543v-6.985a.551.551 0 0 0-.55-.55H11.11v-1.697h1.855a.55.55 0 0 0 .55-.55v-2.063c0-2.02 1.136-3.148 3.03-3.148.567 0 1.156.027 1.597.06v1.453h-.924c-1.363 0-1.93.675-1.93 1.912v1.78c0 .3.247.55.55.55h2.132l-.218 1.69H15.84c-.305 0-.55.24-.55.55v7.02c0 .33.293.59.623.54 5.135-.7 9.007-5.11 9.007-10.36C24.92 8.68 20.26 4 14.51 4"></path></svg></li>
+                                    </ul>
+                                </div>
+                               
+
+                            </div>
+                             <hr>
+                              <div class="author">
+                            <div><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                <p class="">Senior Staff Engineer at Google working with the Chrome team • Creator of TodoMVC, Yeoman, Material Design </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                    <div class="card-container">
+                         <div class="post-footer">
+                            <div class="post-header"></div>
+                            <div class="post-body">
+                                <p>More from Addy Osmani</p>
+                                <h3>Progressive Web Apps with React.js: Part 4 — ...</h3>
+                                <div class="author">
+                                    <div class="img-au"><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                 <a href="">Addy Osmani</a>
+                                 <p><small>14 min read</small></p>
+                            </div>
+                            <div class="author-icons">
+                                <i><svg class="svgIcon-use" width="33" height="33" viewBox="0 0 33 33"><path d="M28.86 17.342l-3.64-6.402c-.292-.433-.712-.729-1.163-.8a1.124 1.124 0 0 0-.889.213c-.63.488-.742 1.181-.33 2.061l1.222 2.587 1.4 2.46c2.234 4.085 1.511 8.007-2.145 11.663-.26.26-.526.49-.797.707 1.42-.084 2.881-.683 4.292-2.094 3.822-3.823 3.565-7.876 2.05-10.395zm-6.252 11.075c3.352-3.35 3.998-6.775 1.978-10.469l-3.378-5.945c-.292-.432-.712-.728-1.163-.8a1.122 1.122 0 0 0-.89.213c-.63.49-.742 1.182-.33 2.061l1.72 3.638a.502.502 0 0 1-.806.568l-8.91-8.91a1.335 1.335 0 0 0-1.887 1.886l5.292 5.292a.5.5 0 0 1-.707.707l-5.292-5.292-1.492-1.492c-.503-.503-1.382-.505-1.887 0a1.337 1.337 0 0 0 0 1.886l1.493 1.492 5.292 5.292a.499.499 0 0 1-.353.854.5.5 0 0 1-.354-.147L5.642 13.96a1.338 1.338 0 0 0-1.887 0 1.338 1.338 0 0 0 0 1.887l2.23 2.228 3.322 3.324a.499.499 0 0 1-.353.853.502.502 0 0 1-.354-.146l-3.323-3.324a1.333 1.333 0 0 0-1.886 0 1.325 1.325 0 0 0-.39.943c0 .356.138.691.39.943l6.396 6.397c3.528 3.53 8.86 5.313 12.821 1.353zM12.73 9.26l5.68 5.68-.49-1.037c-.518-1.107-.426-2.13.224-2.89l-3.303-3.304a1.337 1.337 0 0 0-1.886 0 1.326 1.326 0 0 0-.39.944c0 .217.067.42.165.607zm14.787 19.184c-1.599 1.6-3.417 2.392-5.353 2.392-.349 0-.7-.03-1.058-.082a7.922 7.922 0 0 1-3.667.887c-3.049 0-6.115-1.626-8.359-3.87l-6.396-6.397A2.315 2.315 0 0 1 2 19.724a2.327 2.327 0 0 1 1.923-2.296l-.875-.875a2.339 2.339 0 0 1 0-3.3 2.33 2.33 0 0 1 1.24-.647l-.139-.139c-.91-.91-.91-2.39 0-3.3.884-.884 2.421-.882 3.301 0l.138.14a2.335 2.335 0 0 1 3.948-1.24l.093.092c.091-.423.291-.828.62-1.157a2.336 2.336 0 0 1 3.3 0l3.384 3.386a2.167 2.167 0 0 1 1.271-.173c.534.086 1.03.354 1.441.765.11-.549.415-1.034.911-1.418a2.12 2.12 0 0 1 1.661-.41c.727.117 1.385.565 1.853 1.262l3.652 6.423c1.704 2.832 2.025 7.377-2.205 11.607zM13.217.484l-1.917.882 2.37 2.837-.454-3.719zm8.487.877l-1.928-.86-.44 3.697 2.368-2.837zM16.5 3.293L15.478-.005h2.044L16.5 3.293z" fill-rule="evenodd"></path></svg></i>
+                                <i class="text">481</i>
+                                <i><svg class="svgIcon-use grey" width="25" height="25" viewBox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></i>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                       
+                    </div>
+                    <div class="col-lg-4">
+                    <div class="card-container">
+                        <div class="post-footer">
+                            <div class="post-header post-header-2"></div>
+                            <div class="post-body">
+                                 <p>Related reads</p>
+                                <h3>A React And Preact Progressive Web App...</h3>
+                                <div class="author">
+                                    <div class="img-au"><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                 <a href="">Addy Osmani</a>
+                                 <p><small>14 min read</small></p>
+                            </div>
+                            <div class="author-icons">
+                                <i><svg class="svgIcon-use" width="33" height="33" viewBox="0 0 33 33"><path d="M28.86 17.342l-3.64-6.402c-.292-.433-.712-.729-1.163-.8a1.124 1.124 0 0 0-.889.213c-.63.488-.742 1.181-.33 2.061l1.222 2.587 1.4 2.46c2.234 4.085 1.511 8.007-2.145 11.663-.26.26-.526.49-.797.707 1.42-.084 2.881-.683 4.292-2.094 3.822-3.823 3.565-7.876 2.05-10.395zm-6.252 11.075c3.352-3.35 3.998-6.775 1.978-10.469l-3.378-5.945c-.292-.432-.712-.728-1.163-.8a1.122 1.122 0 0 0-.89.213c-.63.49-.742 1.182-.33 2.061l1.72 3.638a.502.502 0 0 1-.806.568l-8.91-8.91a1.335 1.335 0 0 0-1.887 1.886l5.292 5.292a.5.5 0 0 1-.707.707l-5.292-5.292-1.492-1.492c-.503-.503-1.382-.505-1.887 0a1.337 1.337 0 0 0 0 1.886l1.493 1.492 5.292 5.292a.499.499 0 0 1-.353.854.5.5 0 0 1-.354-.147L5.642 13.96a1.338 1.338 0 0 0-1.887 0 1.338 1.338 0 0 0 0 1.887l2.23 2.228 3.322 3.324a.499.499 0 0 1-.353.853.502.502 0 0 1-.354-.146l-3.323-3.324a1.333 1.333 0 0 0-1.886 0 1.325 1.325 0 0 0-.39.943c0 .356.138.691.39.943l6.396 6.397c3.528 3.53 8.86 5.313 12.821 1.353zM12.73 9.26l5.68 5.68-.49-1.037c-.518-1.107-.426-2.13.224-2.89l-3.303-3.304a1.337 1.337 0 0 0-1.886 0 1.326 1.326 0 0 0-.39.944c0 .217.067.42.165.607zm14.787 19.184c-1.599 1.6-3.417 2.392-5.353 2.392-.349 0-.7-.03-1.058-.082a7.922 7.922 0 0 1-3.667.887c-3.049 0-6.115-1.626-8.359-3.87l-6.396-6.397A2.315 2.315 0 0 1 2 19.724a2.327 2.327 0 0 1 1.923-2.296l-.875-.875a2.339 2.339 0 0 1 0-3.3 2.33 2.33 0 0 1 1.24-.647l-.139-.139c-.91-.91-.91-2.39 0-3.3.884-.884 2.421-.882 3.301 0l.138.14a2.335 2.335 0 0 1 3.948-1.24l.093.092c.091-.423.291-.828.62-1.157a2.336 2.336 0 0 1 3.3 0l3.384 3.386a2.167 2.167 0 0 1 1.271-.173c.534.086 1.03.354 1.441.765.11-.549.415-1.034.911-1.418a2.12 2.12 0 0 1 1.661-.41c.727.117 1.385.565 1.853 1.262l3.652 6.423c1.704 2.832 2.025 7.377-2.205 11.607zM13.217.484l-1.917.882 2.37 2.837-.454-3.719zm8.487.877l-1.928-.86-.44 3.697 2.368-2.837zM16.5 3.293L15.478-.005h2.044L16.5 3.293z" fill-rule="evenodd"></path></svg></i>
+                                <i class="text">481</i>
+                                <i><svg class="svgIcon-use grey" width="25" height="25" viewBox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></i>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                    <div class="col-lg-4">
+                    <div class="card-container">
+                         <div class="post-footer">
+                            <div class="post-header post-header-3"></div>
+                            <div class="post-body">
+                                <p>Related reads</p>
+                                <h3>🍾🚀 webpack 3: Official Release!! 🚀🍾...</h3>
+                                <div class="author">
+                                    <div class="img-au"><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                 <a href="">Addy Osmani</a>
+                                 <p><small>14 min read</small></p>
+                            </div>
+                            <div class="author-icons">
+                                <i><svg class="svgIcon-use" width="33" height="33" viewBox="0 0 33 33"><path d="M28.86 17.342l-3.64-6.402c-.292-.433-.712-.729-1.163-.8a1.124 1.124 0 0 0-.889.213c-.63.488-.742 1.181-.33 2.061l1.222 2.587 1.4 2.46c2.234 4.085 1.511 8.007-2.145 11.663-.26.26-.526.49-.797.707 1.42-.084 2.881-.683 4.292-2.094 3.822-3.823 3.565-7.876 2.05-10.395zm-6.252 11.075c3.352-3.35 3.998-6.775 1.978-10.469l-3.378-5.945c-.292-.432-.712-.728-1.163-.8a1.122 1.122 0 0 0-.89.213c-.63.49-.742 1.182-.33 2.061l1.72 3.638a.502.502 0 0 1-.806.568l-8.91-8.91a1.335 1.335 0 0 0-1.887 1.886l5.292 5.292a.5.5 0 0 1-.707.707l-5.292-5.292-1.492-1.492c-.503-.503-1.382-.505-1.887 0a1.337 1.337 0 0 0 0 1.886l1.493 1.492 5.292 5.292a.499.499 0 0 1-.353.854.5.5 0 0 1-.354-.147L5.642 13.96a1.338 1.338 0 0 0-1.887 0 1.338 1.338 0 0 0 0 1.887l2.23 2.228 3.322 3.324a.499.499 0 0 1-.353.853.502.502 0 0 1-.354-.146l-3.323-3.324a1.333 1.333 0 0 0-1.886 0 1.325 1.325 0 0 0-.39.943c0 .356.138.691.39.943l6.396 6.397c3.528 3.53 8.86 5.313 12.821 1.353zM12.73 9.26l5.68 5.68-.49-1.037c-.518-1.107-.426-2.13.224-2.89l-3.303-3.304a1.337 1.337 0 0 0-1.886 0 1.326 1.326 0 0 0-.39.944c0 .217.067.42.165.607zm14.787 19.184c-1.599 1.6-3.417 2.392-5.353 2.392-.349 0-.7-.03-1.058-.082a7.922 7.922 0 0 1-3.667.887c-3.049 0-6.115-1.626-8.359-3.87l-6.396-6.397A2.315 2.315 0 0 1 2 19.724a2.327 2.327 0 0 1 1.923-2.296l-.875-.875a2.339 2.339 0 0 1 0-3.3 2.33 2.33 0 0 1 1.24-.647l-.139-.139c-.91-.91-.91-2.39 0-3.3.884-.884 2.421-.882 3.301 0l.138.14a2.335 2.335 0 0 1 3.948-1.24l.093.092c.091-.423.291-.828.62-1.157a2.336 2.336 0 0 1 3.3 0l3.384 3.386a2.167 2.167 0 0 1 1.271-.173c.534.086 1.03.354 1.441.765.11-.549.415-1.034.911-1.418a2.12 2.12 0 0 1 1.661-.41c.727.117 1.385.565 1.853 1.262l3.652 6.423c1.704 2.832 2.025 7.377-2.205 11.607zM13.217.484l-1.917.882 2.37 2.837-.454-3.719zm8.487.877l-1.928-.86-.44 3.697 2.368-2.837zM16.5 3.293L15.478-.005h2.044L16.5 3.293z" fill-rule="evenodd"></path></svg></i>
+                                <i class="text">481</i>
+                                <i><svg class="svgIcon-use grey" width="25" height="25" viewBox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></i>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 mx-auto">
+                        <p>Resposes</p>
+                        <div class="response block-foot">
+                            <svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29"><path d="M21.27 20.058c1.89-1.826 2.754-4.17 2.754-6.674C24.024 8.21 19.67 4 14.1 4 8.53 4 4 8.21 4 13.384c0 5.175 4.53 9.385 10.1 9.385 1.007 0 2-.14 2.95-.41.285.25.592.49.918.7 1.306.87 2.716 1.31 4.19 1.31.276-.01.494-.14.6-.36a.625.625 0 0 0-.052-.65c-.61-.84-1.042-1.71-1.282-2.58a5.417 5.417 0 0 1-.154-.75zm-3.85 1.324l-.083-.28-.388.12a9.72 9.72 0 0 1-2.85.424c-4.96 0-8.99-3.706-8.99-8.262 0-4.556 4.03-8.263 8.99-8.263 4.95 0 8.77 3.71 8.77 8.27 0 2.25-.75 4.35-2.5 5.92l-.24.21v.32c0 .07 0 .19.02.37.03.29.1.6.19.92.19.7.49 1.4.89 2.08-.93-.14-1.83-.49-2.67-1.06-.34-.22-.88-.48-1.16-.74z"></path></svg>
+                            <span>Write a response...</span>
+                        </div>
+                        <div class="response block-foot block-foot-bot">
+                            Show All Responses
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <nav class="nav-bottom fixed-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mx-auto">
+                        <div class="author">
+                            <div class="img-au"><div class="topbottom-border"><svg viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg"><path d="M7.66922967,32.092726 C17.0070768,13.6353618 35.9421928,1.75 57,1.75 C78.0578072,1.75 96.9929232,13.6353618 106.33077,32.092726 L107.66923,31.4155801 C98.0784505,12.4582656 78.6289015,0.25 57,0.25 C35.3710985,0.25 15.9215495,12.4582656 6.33077033,31.4155801 L7.66922967,32.092726 Z"></path><path d="M106.33077,81.661427 C96.9929232,100.118791 78.0578072,112.004153 57,112.004153 C35.9421928,112.004153 17.0070768,100.118791 7.66922967,81.661427 L6.33077033,82.338573 C15.9215495,101.295887 35.3710985,113.504153 57,113.504153 C78.6289015,113.504153 98.0784505,101.295887 107.66923,82.338573 L106.33077,81.661427 Z"></path></svg><div class="circles"><a href="" class="round"><img src="https://cdn-images-1.medium.com/fit/c/60/60/1*KsqkCJGgbakpjMlXk14DKA.png" alt=""></a></div></div></div>
+                            <div class="author-desc">
+                                <p class="">Never miss a story from <strong>Addy Osmani</strong>, when you sign up for Medium. <a href="#">Learn more</a> </p>
+                            </div>
+                            <div class="button btn">get updates</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </nav>
+        <script src="js/libs.min.js"></script>
+        <script src="js/common.js"></script>
+    </body>
+</html>
